@@ -1,0 +1,51 @@
+---
+fields:
+  - name: email
+    label: Почта
+    value: pochta@yandex.ru
+  - name: login
+    label: Логин
+    value: ivanivanov
+  - name: first_name
+    label: Имя
+    value: Иван
+  - name: second_name
+    label: Иванов
+    value: Фамилия
+  - name: phone
+    label: Телефон
+    value: '+7 (909) 967 30 30'
+  - name: password
+    label: Пароль
+    value: '************'
+    type: password
+    error: true
+  - name: password_repeat
+    label: Пароль (ещё раз)
+    value: '************'
+    type: password
+    error: true
+    error_reason: Пароли не совпадают
+---
+{{!< main}}
+
+<div id="center">
+    <main class="modal">
+        <form action="">
+            <h1>Регистрация</h1>
+            {{#each fields as |field|}}
+                <div{{#if field.error}} class="form_error"{{/if}}>
+                    <label for="{{field.name}}">{{field.label}}</label>
+                    <input class="text" type="{{#if (eq field.type 'password')}}password{{else}}text{{/if}}" name="{{field.name}}" id="{{field.name}}" value="{{field.value}}">
+                    {{#if field.error_reason}}
+                        <div class="form_error_reason">{{field.error_reason}}</div>
+                    {{/if}}
+                </div>
+            {{/each}}
+            <div class="actions">
+                <button type="submit">Зарегистрироваться</button>
+                <p class="reg"><a href="login.hbs">Войти</a></p>
+            </div>
+        </form>
+    </main>
+</div>

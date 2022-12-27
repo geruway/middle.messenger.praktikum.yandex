@@ -1,0 +1,14 @@
+<div class="messages">
+    {{#each messages as | message |}}
+        {{#if (eq message.type "date")}}
+            <div class="messages_date">{{message.content}}</div>
+        {{else}}
+        <div class="message message_{{message.type}} {{#if message.own}}message_own message_{{message.status}}{{/if}}">
+            <div class="message_content">
+                {{{message.content}}}
+            </div>
+            <div class="message_time">{{message.time}}</div>
+        </div>
+        {{/if}}
+    {{/each}}
+</div>

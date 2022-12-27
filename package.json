@@ -1,0 +1,31 @@
+{
+  "name": "middle.messenger.praktikum.yandex",
+  "version": "1.0.0",
+  "description": "---",
+  "scripts": {
+    "dev": "parcel src/index.hbs --no-cache",
+    "build": "parcel build src/index.hbs --no-cache",
+    "start": "npm run build && node ./server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geruway/middle.messenger.praktikum.yandex.git"
+  },
+  "author": "Eugene Gergel <geruway@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/geruway/middle.messenger.praktikum.yandex/issues"
+  },
+  "homepage": "https://github.com/geruway/middle.messenger.praktikum.yandex#readme",
+  "devDependencies": {
+    "@anikin/parcel-transformer-handlebars": "^1.0.9",
+    "@parcel/transformer-sass": "^2.8.0",
+    "handlebars": "^4.7.7",
+    "parcel": "^2.8.0",
+    "parcel-reporter-static-files-copy": "^1.4.0",
+    "sass": "^1.56.1"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
