@@ -1,0 +1,313 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Inter')
+
+// Settings
+$blue: #3369F3
+$light-blue: #E4EDFD
+$red: #FF2F2F
+$lightest-gray: #FBFBFB
+$lighter-gray: #F8F8F8
+$light-gray: #f5f5f5
+$gray: #EFEFEF
+
+$gray-border: #EAEAEA
+
+$gray-text: #999
+$grayer-text: #525252
+$black: #1E1E1E
+$semi-black: rgba(0, 0, 0, 0.5)
+$white: #fff
+
+%centering
+    display: flex
+    flex-direction: row
+    align-items: center
+
+// Reset
+*
+    box-sizing: border-box
+    margin: 0
+    padding: 0
+    border: 0
+
+html, body
+    height: 100vh
+
+input,
+textarea,
+body
+    color: $gray-text
+    font: 500 12px 'Inter', sans-serif
+
+li
+    list-style: none
+a
+    color: $blue
+    text-decoration: none
+
+input,
+textarea
+    resize: none
+    &:focus
+        outline: none
+
+a,
+button
+    cursor: pointer
+
+button
+    display: block
+    margin-bottom: 14px
+    border-radius: 8px
+    padding: 12px
+    width: 100%
+    background: $blue
+    font-size: 13px
+    line-height: 13px
+    color: $white
+
+#app,
+#center,
+#profile
+    display: flex
+    align-items: stretch
+    height: 100vh
+#center
+    align-items: center
+    justify-content: center
+
+.pages_list
+    margin: 50px
+    color: $black
+    li
+        list-style: disc
+
+aside
+    width: 310px
+    height: 100%
+    border-right: 1px solid $gray-border
+    background: $lightest-gray
+
+nav
+    overflow-y: auto
+    width: 100%
+    height: calc(100% - 105px)
+
+.profile_link
+    margin-bottom: 20px
+    text-align: right
+    a
+        padding-right: 12px
+        color: $gray-text
+        background: url(/static/angle.svg) no-repeat 100% 50%
+#search
+    margin-bottom: 14px
+    padding: 10px
+    width: 100%
+    height: 32px
+    border-radius: 5px
+    background: $gray url(/static/magnifier.svg) no-repeat 102px 50%
+    text-align: center
+    &:not(:placeholder-shown)
+        background-image: none
+
+.padding
+    padding: 20px 10px 0
+
+.avatar
+    float: left
+    width: 47px
+    height: 47px
+    border-radius: 50%
+    background: $gray
+    overflow: hidden
+    &_big
+        width: 130px
+        height: 130px
+
+.ellipsis
+    width: 25px
+    height: 25px
+    border-radius: 50%
+    cursor: pointer
+    div
+        width: 100%
+        height: 100%
+        mask: url(../static/ellipsis.svg) no-repeat 50% 50%
+        background: $black
+    &:hover
+        background: $light-gray
+        div
+            background: $blue
+
+@import components/chat_list/chat_list
+
+.dialog
+    display: flex
+    width: calc(100% - 310px)
+    align-items: stretch
+    flex-direction: column
+    &_empty
+        align-items: center
+        justify-content: center
+    &_header
+        @extend %centering
+        justify-content: space-between
+        padding: 10px 20px
+        border-bottom: 1px solid $gray-border
+        .chat
+            @extend %centering
+            .avatar
+                margin-right: 10px
+                width: 34px
+                height: 34px
+    &_messages
+        height: calc(100% - 110px)
+        display: flex
+        flex-direction: column
+    &_replica
+        @extend %centering
+        padding: 11px 20px
+        border-top: 1px solid $gray-border
+        .attach
+            width: 32px
+            height: 32px
+            mask: url(../static/paperclip.svg) no-repeat 50% 50%
+            background: $gray-text
+            cursor: pointer
+            &:hover
+                background: $blue
+                
+        #message
+            background: $gray
+            color: $gray-text
+            margin: 0 10px
+            padding: 10px 20px
+            width: 100%
+            height: 32px
+            line-height: 12px
+            border-radius: 16px
+            overflow: hidden
+        button
+            margin: 0
+            padding: 0
+            width: 28px
+            height: 28px
+            background: $blue url(../static/arrow-right.svg) no-repeat 50% 50%
+            border-radius: 50%
+
+@import components/messages/messages
+@import components/error/error
+
+.modal
+    display: flex
+    padding: 30px
+    width: 340px
+    min-height: 450px
+    border-radius: 12px
+    background: $white
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.14)
+    color: $black
+    h1
+        margin: 20px 0 40px
+        text-align: center
+    form
+        display: flex
+        flex-direction: column
+        flex: 1
+        label
+            font-size: 9px
+            line-height: 9px
+            color: $gray-text
+        input.text
+            display: block
+            margin-bottom: 16px
+            border-bottom: 1px solid $blue
+            padding: 7px 0
+            width: 100%
+            font-size: 13px
+            color: $black
+        .reg
+            font-size: 11px
+            text-align: center
+        .form_error input.text,
+        .form_error_reason
+            color: $red
+        .form_error_reason
+            margin-top: -7px
+            font-size: 8px
+            line-height: 8px
+        .actions
+            margin-top: auto
+            padding-top: 40px
+
+#profile
+    font-size: 13px
+    color: $black
+.profile_back
+    @extend %centering
+    justify-content: center
+    width: 64px
+    height: 100%
+    border-right: 1px solid $gray-border
+    background: $lightest-gray
+    a
+        display: block
+        width: 28px
+        height: 28px
+        background: $blue url(../static/arrow-left.svg) no-repeat 50% 50%
+        border-radius: 50%
+.profile_container
+    @extend %centering
+    flex-direction: column
+    justify-content: center
+    width: 100%
+.profile_form
+    width: 510px
+    text-align: center
+    .avatar
+        float: none
+        margin: 0 auto
+        position: relative
+        cursor: pointer
+        .placeholder
+            display: none
+            position: absolute
+            z-index: 1
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+            @extend %centering
+            justify-content: center
+            background: $semi-black
+            color: $white
+        &:hover .placeholder
+            display: flex
+        img
+            position: relative
+            z-index: 0
+    .login
+        margin-top: 21px
+        font-size: 16px
+        font-weight: 600
+    .fields
+        margin: 50px 0 30px
+        .field
+            display: flex
+            justify-content: space-between
+            .value
+                text-align: right
+                color: $gray-text
+    .lines li
+        text-align: left
+        padding: 10px 0
+        border-bottom: 1px solid $gray-border
+    .lines li:last-child
+        border-bottom: none
+    button
+        margin: 0 auto
+        max-width: 280px
+    .actions
+        .exit a
+            color: $red
